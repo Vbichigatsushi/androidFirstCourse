@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        supportActionBar?.title = "Dom'Hub"
+        supportActionBar?.title = "🏠 Dom'Hub"
 
         val temperatureCard = findViewById<MaterialCardView>(R.id.cardTemperature)
         temperatureTextView = temperatureCard.getChildAt(0) as TextView
