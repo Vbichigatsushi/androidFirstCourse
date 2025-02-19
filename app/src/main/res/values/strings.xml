@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Epsi1</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="placeholder">ceci est un magnifique placeholder</string>
+</resources>
