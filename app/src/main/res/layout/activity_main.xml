@@ -2,6 +2,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -31,7 +32,8 @@
                     android:layout_height="match_parent"
                     android:textAlignment="center"
                     android:gravity="center"
-                    android:text="@string/placeholder"/>
+                    android:text="@string/placeholder"
+                    android:textColor="@color/black"/>
             </com.google.android.material.card.MaterialCardView>
             <Space
                 android:layout_width="10dp"
@@ -50,7 +52,8 @@
                     android:layout_height="match_parent"
                     android:textAlignment="center"
                     android:gravity="center"
-                    android:text="@string/placeholder" />
+                    android:text="@string/placeholder"
+                    android:textColor="@color/black"/>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
         <Space
@@ -73,7 +76,8 @@
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:gravity="bottom"
-                android:text="@string/placeholder" />
+                android:text="@string/placeholder"
+                android:textColor="@color/black"/>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
     <Space
@@ -93,13 +97,39 @@
             android:layout_weight="2"
             app:cardBackgroundColor="@color/second_violet"
             app:cardCornerRadius="15dp">
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textAlignment="center"
-                android:gravity="center"
-                android:text="@string/placeholder" />
+                android:orientation="horizontal"
+                android:weightSum="3">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="@string/blind1"
+                    android:textColor="@color/black"
+                    android:textSize="11dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="@string/blind2"
+                    android:textColor="@color/black"
+                    android:textSize="11dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="@string/blind3"
+                    android:textColor="@color/black"
+                    android:textSize="11dp"/>
+            </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
         <Space
             android:layout_width="10dp"
@@ -113,12 +143,39 @@
             app:cardBackgroundColor="@color/second_violet"
             app:cardCornerRadius="15dp">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textAlignment="center"
-                android:gravity="center"
-                android:text="@string/placeholder" />
+                android:orientation="horizontal"
+                android:weightSum="3">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="@string/lamp1"
+                    android:textColor="@color/black"
+                    android:textSize="11dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="@string/lamp2"
+                    android:textColor="@color/black"
+                    android:textSize="11dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="@string/lamp3"
+                    android:textColor="@color/black"
+                    android:textSize="11dp"/>
+            </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
     <Space
@@ -134,17 +191,31 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardInventory"
             android:layout_width="0dp"
-            android:layout_height="160dp"
+            android:layout_height="240dp"
             android:layout_weight="4"
             app:cardBackgroundColor="@color/second_violet"
             app:cardCornerRadius="15dp">
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textAlignment="center"
-                android:gravity="center"
-                android:text="@string/placeholder" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="5">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:textAlignment="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/inventory"
+                    android:textColor="@color/black"/>
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4"
+                    tools:listitem="@layout/item_inventory_layout"
+                    android:divider="@color/black"
+                    android:dividerHeight="1dp"/>
+            </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
     <Space
@@ -171,12 +242,36 @@
                 app:cardBackgroundColor="@color/second_violet"
                 app:cardCornerRadius="15dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textAlignment="center"
-                    android:gravity="center"
-                    android:text="@string/placeholder" />
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:text="@string/placeholder"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:text="@string/placeholder"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:text="@string/placeholder"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
             <Space
                 android:layout_width="0dp"
@@ -189,13 +284,15 @@
                 android:layout_weight="2"
                 app:cardBackgroundColor="@color/second_violet"
                 app:cardCornerRadius="15dp">
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textAlignment="center"
                     android:gravity="center"
-                    android:text="@string/placeholder" />
+                    android:text="@string/serverState"
+                    android:textColor="@color/black"
+                    android:layout_weight="3"
+                    app:drawableStartCompat="@drawable/server_icon"/>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
         <Space
@@ -209,13 +306,47 @@
             android:layout_weight="2"
             app:cardBackgroundColor="@color/second_violet"
             app:cardCornerRadius="15dp">
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textAlignment="center"
-                android:gravity="center"
-                android:text="@string/placeholder" />
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/camera1"
+                        android:scaleType="fitXY"/>
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/camera2"
+                        android:scaleType="fitXY"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/camera3"
+                        android:scaleType="fitXY"/>
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/camera4"
+                        android:scaleType="fitXY"/>
+                </LinearLayout>
+            </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 </LinearLayout>

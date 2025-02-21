@@ -2,4 +2,15 @@
     <string name="app_name">Epsi1</string>
     <string name="hello_world">Hello World!</string>
     <string name="placeholder">ceci est un magnifique placeholder</string>
+    <string name="blind1">🪟\n\nSalon</string>
+    <string name="blind2">🪟\n\nChambre</string>
+    <string name="blind3">🪟\n\nAtelier</string>
+    <string name="serverState">Server Online 🟢</string>
+    <string name="lamp1">💡\n\nSalon 1</string>
+    <string name="lamp2">💡\n\nSalon 2</string>
+    <string name="lamp3">💡\n\nAtelier</string>
+    <string name="inventory">Inventaire</string>
+    <string name="qte">Quantité</string>
+    <string name="lieu">Lieu de stockage</string>
+    <string name="nom">Nom</string>
 </resources>
