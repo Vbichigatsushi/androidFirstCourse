@@ -1,17 +1,20 @@
 package com.example.epsi1
 
+import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import com.example.epsi1.model.T_InventoryItem
 import android.widget.TextView
-import androidx.room.Room
 import com.example.epsi1.activity.InventoryDetails
-import com.example.epsi1.database.AppDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -86,14 +89,36 @@ class Adapter(private val context: Context, private var inventoryItems: Array<T_
 
         }
 
-        holder.edit.setOnClickListener {
-            CoroutineScope(Dispatchers.IO).launch {
-                //(context.applicationContext as UserDataApplication).database.InventoryItemDao().deleteRow(inventoryItems[position].uid)
-                (context as InventoryDetails).getInventoryDatas()
+        holder.edit.setOnClickListener { //appel du formulaire custom pour editer un item
+            val builder = AlertDialog.Builder(context)
+            builder.setTitle("Modifier un item")
+            val customLayout: View = (context as Activity).layoutInflater.inflate(R.layout.dlg_inventory_item, null)
+
+            val editTextNom : EditText = customLayout.findViewById(R.id.editTextNom)
+            editTextNom.text = Editable.Factory.getInstance().newEditable(inventoryItems[position].nom)
+            val editTextLieu : EditText = customLayout.findViewById(R.id.editTextLieu)
+            editTextLieu.text = Editable.Factory.getInstance().newEditable(inventoryItems[position].lieu)
+            val editTextQte : EditText = customLayout.findViewById(R.id.editTextQte)
+            editTextQte.text = Editable.Factory.getInstance().newEditable(inventoryItems[position].qte)
+
+            builder.setView(customLayout)
+            builder.setPositiveButton("OK"){
+                    _: DialogInterface?, _:Int->
+
+                val editTextNomValue = editTextNom.text.toString()
+                val editTextLieuValue = editTextLieu.text.toString()
+                val editTextQteValue = editTextQte.text.toString()
+
+                if (editTextNomValue.isNotEmpty() && editTextLieuValue.isNotEmpty() && editTextQteValue.isNotEmpty()){
+                    CoroutineScope(Dispatchers.IO).launch {
+                        (context.applicationContext as UserDataApplication).database.InventoryItemDao().updateRow(editTextNomValue, editTextLieuValue, editTextQteValue, inventoryItems[position].uid)
+                        (context as InventoryDetails).getInventoryDatas()
+                    }
+                }
             }
-
+            val dialog = builder.create()
+            dialog.show()
         }
-
         return cv
     }
 }

@@ -92,18 +92,18 @@ class MainActivity : AppCompatActivity() {
         itemDao = (applicationContext as UserDataApplication).database.InventoryItemDao()
         val temperatureCard = findViewById<MaterialCardView>(R.id.cardTemperature)
         temperatureTextView = temperatureCard.getChildAt(0) as TextView
-        // Lancer la mise à jour périodique
+        // Lancer la mise à jour périodique de la température
         handler.post(updateTemperatureRunnable)
 
         val humidityCard = findViewById<MaterialCardView>(R.id.cardHumidity)
         humidityTextView = humidityCard.getChildAt(0) as TextView
-        // Lancer la mise à jour périodique
+        // Lancer la mise à jour périodique de l'humidité
         handler.post(updateHumidityRunnable)
 
         airQualitygauge = findViewById<CustomArcGauge>(R.id.arcGauge)
         val airQualityCard = findViewById<MaterialCardView>(R.id.cardAirQuality)
         airQualityTextView = airQualityCard.getChildAt(1) as TextView
-        // Lancer la mise à jour périodique
+        // Lancer la mise à jour périodique de la qualité de l'air
         handler.post(updateAirQualityRunnable)
 
         val blindCard = findViewById<MaterialCardView>(R.id.cardBlind).getChildAt(0) as LinearLayout
@@ -117,7 +117,7 @@ class MainActivity : AppCompatActivity() {
 
             val colorAnimation = ValueAnimator.ofArgb(colorFrom, colorTo, colorFrom)
             colorAnimation.duration = 1000 // Durée en millisecondes
-            colorAnimation.repeatCount = 5 // Animation infinie
+            colorAnimation.repeatCount = 5
 
             colorAnimation.addUpdateListener { animator ->
                 blindTextView.setBackgroundColor(animator.animatedValue as Int)
@@ -125,7 +125,7 @@ class MainActivity : AppCompatActivity() {
 
             blindTextView.setOnClickListener {
                 Toast.makeText(this, "action volet effectué", Toast.LENGTH_LONG).show()
-                colorAnimation.start() // Démarre l'animation sur clic
+                colorAnimation.start()
             }
         }
 
@@ -133,9 +133,10 @@ class MainActivity : AppCompatActivity() {
         pingTextView = connectionStateCard.getChildAt(0) as TextView
         downloadTextView = connectionStateCard.getChildAt(1) as TextView
         uploadTextView = connectionStateCard.getChildAt(2) as TextView
-
+        // Lancer la mise à jour périodique du speedtest
         handler.post(updateConnectionStateRunnable)
 
+        //changement de taille de l'icone de serveur
         val serverStateCard = findViewById<MaterialCardView>(R.id.cardServerState).getChildAt(0) as TextView
         val drawable = ContextCompat.getDrawable(this, R.drawable.server_icon)
         drawable?.setBounds(40, 0, serverStateCard.lineHeight+40, serverStateCard.lineHeight) // Ajuste la taille au texte
@@ -160,13 +161,14 @@ class MainActivity : AppCompatActivity() {
 
             lampTextView.setOnClickListener {
                 Toast.makeText(this, "action lampe effectué", Toast.LENGTH_LONG).show()
-                colorAnimation.start() // Démarre l'animation sur clic
+                colorAnimation.start()
             }
         }
     }
 
     override fun onResume() {
         super.onResume()
+        //mise a jour des données de l'inventaire
         val inventoryCard = findViewById<MaterialCardView>(R.id.cardInventory).getChildAt(0) as LinearLayout
         val listView = inventoryCard.getChildAt(1) as ListView
 

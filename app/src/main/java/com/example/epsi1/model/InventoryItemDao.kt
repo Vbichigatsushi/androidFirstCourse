@@ -14,4 +14,7 @@ interface InventoryItemDao {
 
     @Query("DELETE FROM t_inventoryitem WHERE uid = :id")
     fun deleteRow(vararg id: Int)
+
+    @Query("UPDATE t_inventoryitem set nom = :nom, lieu = :lieu, qte = :qte where uid = :id")
+    fun updateRow(nom: String, lieu: String, qte: String, id: Int)
 }

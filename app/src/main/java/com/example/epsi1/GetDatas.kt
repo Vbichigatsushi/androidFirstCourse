@@ -14,7 +14,7 @@ import kotlin.math.roundToInt
 import kotlin.random.Random
 
 
-class GetDatas(private val ctx: Context) {
+class GetDatas(private val ctx: Context) { //ces méthodes renvoie des données factices (sauf speedtest) pour l'affichage mais peuvent etre editer dans le futur pour de vrai données
 
     fun getTemperature(): String {
         val min = 17.5

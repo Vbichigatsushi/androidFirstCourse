@@ -1,7 +1,6 @@
 package com.example.epsi1.activity
 
 import android.app.AlertDialog
-import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
@@ -13,13 +12,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.room.Room
 import com.example.epsi1.Adapter
 import com.example.epsi1.R
 import com.example.epsi1.UserDataApplication
-import com.example.epsi1.database.AppDatabase
 import com.example.epsi1.model.T_InventoryItem
-import com.google.android.material.card.MaterialCardView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -78,7 +74,7 @@ class InventoryDetails : AppCompatActivity() {
         getInventoryDatas()
     }
 
-    fun getInventoryDatas(){
+    fun getInventoryDatas(){ //met a jour l'affichage de l'inventaire.
         CoroutineScope(Dispatchers.IO).launch {
             val dbvalues = (applicationContext as UserDataApplication).database.InventoryItemDao().selectLines()
             withContext(Dispatchers.Main){
